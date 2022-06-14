@@ -106,7 +106,7 @@ CREATE TABLE Dependent(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, relation 
           'phoneNum',
           'emailAddress'
         ],
-        where: 'username = ?, password = ?',
+        where: 'username = ? AND password = ?',
         whereArgs: [username, password]);
 
     if (profileInfoData.isNotEmpty) {

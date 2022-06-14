@@ -121,7 +121,7 @@ class UserDependentAdd extends StatelessWidget {
                                               name: _name.text,
                                               relation: _relation.text,
                                               gender: _gender.text,
-                                              age: _age.text);
+                                              age: int.parse(_age.text));
 
                                       //add to bloc
                                       dependentBloc.add(InsertDependentData(

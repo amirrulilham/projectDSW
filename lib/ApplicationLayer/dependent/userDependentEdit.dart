@@ -50,11 +50,11 @@ class _UpdateUserDependentEditState extends State<UpdateUserDependentEdit> {
                   } else if (state is DependentLoading) {
                     return const Center(child: CircularProgressIndicator());
                   } else if (state is UpdateDependentLoad) {
-                    _id.text = state.dependentModel.id as String;
+                    _id.text = state.dependentModel.id.toString();
                     _name.text = state.dependentModel.name;
                     _relation.text = state.dependentModel.relation;
                     _gender.text = state.dependentModel.gender;
-                    _age.text = state.dependentModel.age;
+                    _age.text = state.dependentModel.age.toString();
 
                     return ListView(
                       children: [
@@ -153,7 +153,7 @@ class _UpdateUserDependentEditState extends State<UpdateUserDependentEdit> {
                                               name: _name.text,
                                               relation: _relation.text,
                                               gender: _gender.text,
-                                              age: _age.text,
+                                              age: int.parse(_age.text),
                                             );
 
                                             //update to bloc

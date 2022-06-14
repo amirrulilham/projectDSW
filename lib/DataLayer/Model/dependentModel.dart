@@ -3,7 +3,7 @@ class DependentModel {
   final String name;
   final String relation;
   final String gender;
-  final String age;
+  final int age;
 
   DependentModel({
     this.id,
