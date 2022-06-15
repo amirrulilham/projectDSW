@@ -23,16 +23,12 @@ class _IndexDependentstate extends State<UserDependentView> {
   }
 
   refresh() {
-    setState(() {
-      initState();
-    });
+    dependentBloc.add(GetDependentList());
   }
 
   //refresh when pop
   onGoBack(dynamic value) {
-    setState(() {
-      initState();
-    });
+    dependentBloc.add(GetDependentList());
   }
 
   @override

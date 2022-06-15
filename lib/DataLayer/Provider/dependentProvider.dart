@@ -29,5 +29,7 @@ class DependentProvider {
     return _dependentProvider.deleteDependent(value);
   }
 
-  updateDependentDataProvider(DependentModel dependentModel) {}
+  updateDependentDataProvider(DependentModel dependentModel) {
+    return _dependentProvider.updateDependent(dependentModel);
+  }
 }

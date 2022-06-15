@@ -74,6 +74,7 @@ CREATE TABLE Dependent(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, relation 
     final profileInfoData = await db.query('ProfileInfo',
         columns: [
           'id',
+          'icNum',
           'type',
           'name',
           'address',

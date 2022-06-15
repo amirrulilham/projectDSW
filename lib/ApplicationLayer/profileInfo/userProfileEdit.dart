@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projectsdw/DataLayer/Model/profileInfoModel.dart';
@@ -235,7 +238,7 @@ class _UpdateProfileInfoPageState extends State<UpdateProfileInfoPage> {
                                             //update to bloc
                                             profileInfoBloc.add(
                                                 UpdateProfileInfoData(
-                                                    profileInfoModel!));
+                                                    profileModel));
 
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(

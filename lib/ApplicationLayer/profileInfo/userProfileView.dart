@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projectsdw/ApplicationLayer/dependent/userDependentAdd.dart';
@@ -25,16 +27,12 @@ class _IndexRegistrationState extends State<UserProfileView> {
   }
 
   refresh() {
-    setState(() {
-      initState();
-    });
+    profileInfoBloc.add(GetProfileInfoList());
   }
 
   //refresh when pop
   onGoBack(dynamic value) {
-    setState(() {
-      initState();
-    });
+    profileInfoBloc.add(GetProfileInfoList());
   }
 
   @override
@@ -74,7 +72,6 @@ class _IndexRegistrationState extends State<UserProfileView> {
               create: (_) => profileInfoBloc,
               child: BlocBuilder<ProfileInfoBloc, ProfileInfoState>(
                   builder: (context, state) {
-                    print(state);
                 if (state is ProfileInfoInitial) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is ProfileInfoLoading) {
@@ -142,7 +139,7 @@ Widget _UI(BuildContext context, state, onGoBack, refresh, profileInfoBloc) {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      const UpdateUserDependentEdit(),
+                                                      const UpdateProfileInfoPage(),
                                                   settings: RouteSettings(
                                                     arguments: {
                                                       "id": state[index]
@@ -169,8 +166,7 @@ Widget _UI(BuildContext context, state, onGoBack, refresh, profileInfoBloc) {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 8, right: 8),
-                            child: Text(
-                              state[index].age.toString(),
+                            child: Text("",
                               style: const TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.normal,

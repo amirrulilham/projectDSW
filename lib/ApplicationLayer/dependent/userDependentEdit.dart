@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:projectsdw/DataLayer/Model/dependentModel.dart';
@@ -157,9 +160,15 @@ class _UpdateUserDependentEditState extends State<UpdateUserDependentEdit> {
                                             );
 
                                             //update to bloc
-                                            dependentBloc.add(
+                                            try {
+                                              dependentBloc.add(
                                                 UpdateDependentData(
                                                     dependentModel));
+                                            } catch (e, stacktrace) {
+                                              log(e.toString());
+                                              log(stacktrace.toString());
+                                            }
+
 
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(
